@@ -1,13 +1,14 @@
-import { ChainId, Currency, Percent } from '@uniswap/sdk-core'
+import { Currency, Percent } from '@uniswap/sdk-core'
 import {
   AlphaRouterConfig,
+  ChainId,
   ITokenListProvider,
   ITokenProvider,
   MapWithLowerCaseKey,
   NATIVE_NAMES_BY_ID,
   nativeOnChain,
   ProtocolPoolSelection,
-} from '@uniswap/smart-order-router'
+} from '@aperture_finance/uniswap-smart-order-router'
 import Logger from 'bunyan'
 
 export const SECONDS_PER_BLOCK_BY_CHAIN_ID: { [chainId in ChainId]?: number } = {
@@ -16,6 +17,8 @@ export const SECONDS_PER_BLOCK_BY_CHAIN_ID: { [chainId in ChainId]?: number } = 
 
 export const DEFAULT_ROUTING_CONFIG_BY_CHAIN = (chainId: ChainId): AlphaRouterConfig => {
   switch (chainId) {
+    case ChainId.MANTA_PACIFIC_TESTNET:
+    case ChainId.MANTA_PACIFIC:
     case ChainId.BASE:
     case ChainId.OPTIMISM:
       return {

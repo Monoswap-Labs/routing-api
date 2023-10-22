@@ -1,11 +1,12 @@
 import { SignerWithAddress } from '@nomiclabs/hardhat-ethers/signers'
 import { AllowanceTransfer, PermitSingle } from '@uniswap/permit2-sdk'
-import { ChainId, Currency, CurrencyAmount, Ether, Fraction, Token, WETH9 } from '@uniswap/sdk-core'
+import { Currency, CurrencyAmount, Ether, Fraction, Token, WETH9 } from '@uniswap/sdk-core'
 import {
   CEUR_CELO,
   CEUR_CELO_ALFAJORES,
   CUSD_CELO,
   CUSD_CELO_ALFAJORES,
+  ChainId,
   DAI_MAINNET,
   ID_TO_NETWORK_NAME,
   NATIVE_CURRENCY,
@@ -14,12 +15,12 @@ import {
   USDC_MAINNET,
   USDT_MAINNET,
   WBTC_MAINNET,
-} from '@uniswap/smart-order-router'
+} from '@aperture_finance/uniswap-smart-order-router'
 import {
   PERMIT2_ADDRESS,
   UNIVERSAL_ROUTER_ADDRESS as UNIVERSAL_ROUTER_ADDRESS_BY_CHAIN,
 } from '@uniswap/universal-router-sdk'
-import { MethodParameters } from '@uniswap/smart-order-router'
+import { MethodParameters } from '@aperture_finance/uniswap-smart-order-router'
 import { fail } from 'assert'
 import axiosStatic, { AxiosResponse } from 'axios'
 import axiosRetry from 'axios-retry'
@@ -1904,6 +1905,8 @@ describe('quote', function () {
     [ChainId.AVALANCHE]: () => USDC_ON(ChainId.AVALANCHE),
     [ChainId.BASE_GOERLI]: () => USDC_ON(ChainId.BASE_GOERLI),
     [ChainId.BASE]: () => USDC_ON(ChainId.BASE),
+    [ChainId.MANTA_PACIFIC_TESTNET]: () => USDC_ON(ChainId.MANTA_PACIFIC_TESTNET),
+    [ChainId.MANTA_PACIFIC]: () => USDC_ON(ChainId.MANTA_PACIFIC),
   }
 
   const TEST_ERC20_2: { [chainId in ChainId]: () => Token | null } = {
@@ -1924,6 +1927,8 @@ describe('quote', function () {
     [ChainId.AVALANCHE]: () => DAI_ON(ChainId.AVALANCHE),
     [ChainId.BASE_GOERLI]: () => WNATIVE_ON(ChainId.BASE_GOERLI),
     [ChainId.BASE]: () => WNATIVE_ON(ChainId.BASE),
+    [ChainId.MANTA_PACIFIC_TESTNET]: () => WNATIVE_ON(ChainId.MANTA_PACIFIC_TESTNET),
+    [ChainId.MANTA_PACIFIC]: () => WNATIVE_ON(ChainId.MANTA_PACIFIC),
   }
 
   // TODO: Find valid pools/tokens on optimistic kovan and polygon mumbai. We skip those tests for now.

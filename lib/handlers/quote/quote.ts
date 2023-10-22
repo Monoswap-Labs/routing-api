@@ -2,9 +2,10 @@ import Joi from '@hapi/joi'
 import { Protocol } from '@uniswap/router-sdk'
 import { UNIVERSAL_ROUTER_ADDRESS } from '@uniswap/universal-router-sdk'
 import { PermitSingle } from '@uniswap/permit2-sdk'
-import { ChainId, Currency, CurrencyAmount, TradeType } from '@uniswap/sdk-core'
+import { Currency, CurrencyAmount, TradeType } from '@uniswap/sdk-core'
 import {
   AlphaRouterConfig,
+  ChainId,
   IRouter,
   MetricLoggerUnit,
   routeAmountsToString,
@@ -14,7 +15,7 @@ import {
   SimulationStatus,
   IMetric,
   ID_TO_NETWORK_NAME,
-} from '@uniswap/smart-order-router'
+} from '@aperture_finance/uniswap-smart-order-router'
 import { Pool } from '@uniswap/v3-sdk'
 import JSBI from 'jsbi'
 import _ from 'lodash'
