@@ -62,7 +62,7 @@
     "typescript": "^4.2.3"
   },
   "dependencies": {
-    "@aperture_finance/uniswap-smart-order-router": "0.2.0",
+    "@aperture_finance/uniswap-smart-order-router": "0.3.0",
     "@hapi/joi": "^17.1.1",
     "@middy/core": "^2.4.1",
     "@middy/http-error-handler": "^2.4.1",

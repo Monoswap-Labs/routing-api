@@ -19,6 +19,7 @@ export const DEFAULT_ROUTING_CONFIG_BY_CHAIN = (chainId: ChainId): AlphaRouterCo
   switch (chainId) {
     case ChainId.MANTA_PACIFIC_TESTNET:
     case ChainId.MANTA_PACIFIC:
+    case ChainId.SCROLL:
     case ChainId.BASE:
     case ChainId.OPTIMISM:
       return {
