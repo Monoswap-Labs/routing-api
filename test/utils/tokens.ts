@@ -34,7 +34,8 @@ import {
   USDC_BASE,
   USDC_BASE_GOERLI,
   USDC_MANTA_PACIFIC_TESTNET,
-} from '@aperture_finance/uniswap-smart-order-router'
+  USDC_BLAST_SEPOLIA,
+} from '@monoswap-labs/smart-order-router'
 import { ethers } from 'ethers'
 import NodeCache from 'node-cache'
 
@@ -136,6 +137,8 @@ export const USDC_ON = (chainId: ChainId): Token => {
       return USDC_BASE_GOERLI
     case ChainId.MANTA_PACIFIC_TESTNET:
       return USDC_MANTA_PACIFIC_TESTNET
+    case ChainId.BLAST_SEPOLIA:
+      return USDC_BLAST_SEPOLIA
     default:
       throw new Error(`Chain id: ${chainId} not supported`)
   }

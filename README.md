@@ -1,8 +1,8 @@
-# Uniswap Routing API
+# Monoswap Routing API
 
-This repository contains Uniswap routing service for several chains that are not supported by Uniswap's official API endpoint.
+This repository contains Monoswap routing service for several chains that are not supported by Monoswap's official API endpoint.
 
-It deploys an API to AWS that uses @aperture_finance/uniswap-smart-order-router to search for the most efficient way to swap token A for token B.
+It deploys an API to AWS that uses @monoswap-labs/smart-order-router to search for the most efficient way to swap token A for token B.
 
 ## Development
 
@@ -16,9 +16,7 @@ The best way to develop and test the API is to deploy your own instance to AWS.
 2. Create .env file in the root directory of the project with :
    ```
    THROTTLE_PER_FIVE_MINS = '' # Optional
-   JSON_RPC_PROVIDER_3441005=https://pacific-rpc.testnet.manta.network/http
-   JSON_RPC_PROVIDER_169=https://pacific-rpc.manta.network/http
-   JSON_RPC_PROVIDER_534352=https://rpc.scroll.io
+   JSON_RPC_PROVIDER_168587773=https://sepolia.blast.io
    ```
 3. Install and build the package
    ```
@@ -26,11 +24,11 @@ The best way to develop and test the API is to deploy your own instance to AWS.
    ```
 4. To deploy the API, run:
    ```
-   cdk deploy RoutingAPIStackTest
+   cdk deploy RoutingAPIStack
    ```
    This will deploy to the default account your AWS CLI is configured for. Once complete it will output something like:
    ```
-   RoutingAPIStackTest.Url = https://...
+   RoutingAPIStack.Url = https://...
    ```
 
 ### Production Stack
@@ -39,13 +37,11 @@ Aperture's production stack is named `RoutingAPIStack`. To deploy/reload the pro
 cdk deploy RoutingAPIStack
 ```
 
-We have a deployed stack with url https://vbcuqwld9d.execute-api.us-west-2.amazonaws.com/prod/. Our custom domain https://uniswap-routing.aperture.finance points to this stack. Sample queries try it out:
+We have a deployed stack with url https://z8ce5n64p2.execute-api.ap-southeast-1.amazonaws.com/prod/. Sample queries try it out:
 ```
-# Manta Pacific mainnet
-curl --request GET 'https://uniswap-routing.aperture.finance/quote?tokenInAddress=0x39471bee1bbe79f3bfa774b6832d6a530eddac6b&tokenInChainId=3441005&tokenOutAddress=0x50508d7cb6bf4e1664ce62e7cceca96ca50b61c6&tokenOutChainId=3441005&amount=1000&type=exactIn'
+# Blast sepolia
+https://z8ce5n64p2.execute-api.ap-southeast-1.amazonaws.com/prod/quote?tokenInAddress=0xda9C093a7D9e41d21Dc9A7ff5601A3FD02111d95&tokenInChainId=168587773&tokenOutAddress=ETH&tokenOutChainId=168587773&amount=1000000&type=exactIn
 
-# Scroll mainnet
-curl --request GET 'https://uniswap-routing.aperture.finance/quote?tokenInAddress=0x06eFdBFf2a14a7c8E15944D1F4A48F9F95F663A4&tokenInChainId=534352&tokenOutAddress=ETH&tokenOutChainId=534352&amount=1000000&type=exactIn'
 ```
 
 ### Integration Tests
@@ -65,3 +61,6 @@ The integration tests fetch quotes from your deployed API, then execute the swap
    ```
    npm run integ-test
    ```
+
+
+

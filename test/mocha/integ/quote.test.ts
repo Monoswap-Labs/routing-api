@@ -15,12 +15,12 @@ import {
   USDC_MAINNET,
   USDT_MAINNET,
   WBTC_MAINNET,
-} from '@aperture_finance/uniswap-smart-order-router'
+} from '@monoswap-labs/smart-order-router'
 import {
   PERMIT2_ADDRESS,
   UNIVERSAL_ROUTER_ADDRESS as UNIVERSAL_ROUTER_ADDRESS_BY_CHAIN,
 } from '@uniswap/universal-router-sdk'
-import { MethodParameters } from '@aperture_finance/uniswap-smart-order-router'
+import { MethodParameters } from '@monoswap-labs/smart-order-router'
 import { fail } from 'assert'
 import axiosStatic, { AxiosResponse } from 'axios'
 import axiosRetry from 'axios-retry'
@@ -1908,6 +1908,7 @@ describe('quote', function () {
     [ChainId.MANTA_PACIFIC_TESTNET]: () => USDC_ON(ChainId.MANTA_PACIFIC_TESTNET),
     [ChainId.MANTA_PACIFIC]: () => USDC_ON(ChainId.MANTA_PACIFIC),
     [ChainId.SCROLL]: () => USDC_ON(ChainId.SCROLL),
+    [ChainId.BLAST_SEPOLIA]: () => USDC_ON(ChainId.BLAST_SEPOLIA),
   }
 
   const TEST_ERC20_2: { [chainId in ChainId]: () => Token | null } = {
@@ -1931,6 +1932,7 @@ describe('quote', function () {
     [ChainId.MANTA_PACIFIC_TESTNET]: () => WNATIVE_ON(ChainId.MANTA_PACIFIC_TESTNET),
     [ChainId.MANTA_PACIFIC]: () => WNATIVE_ON(ChainId.MANTA_PACIFIC),
     [ChainId.SCROLL]: () => WNATIVE_ON(ChainId.SCROLL),
+    [ChainId.BLAST_SEPOLIA]: () => WNATIVE_ON(ChainId.BLAST_SEPOLIA),
   }
 
   // TODO: Find valid pools/tokens on optimistic kovan and polygon mumbai. We skip those tests for now.

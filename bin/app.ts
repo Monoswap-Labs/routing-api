@@ -1,4 +1,4 @@
-import { ChainId } from '@aperture_finance/uniswap-smart-order-router'
+import { ChainId } from '@monoswap-labs/smart-order-router'
 import * as cdk from 'aws-cdk-lib'
 import { CfnOutput, SecretValue, Stack, StackProps, Stage, StageProps } from 'aws-cdk-lib'
 import * as chatbot from 'aws-cdk-lib/aws-chatbot'
@@ -167,8 +167,8 @@ export class RoutingAPIPipeline extends Stack {
     })
 
     // Beta us-east-2
-    const betaUsEast2Stage = new RoutingAPIStage(this, 'beta-us-east-2', {
-      env: { account: '145079444317', region: 'us-east-2' },
+    const betaUsEast2Stage = new RoutingAPIStage(this, 'beta-ap-southeast-1', {
+      env: { account: '207198455171', region: 'ap-southeast-1' },
       jsonRpcProviders: jsonRpcProviders,
       internalApiKey: internalApiKey.secretValue.toString(),
       provisionedConcurrency: 50,
@@ -189,8 +189,8 @@ export class RoutingAPIPipeline extends Stack {
     this.addIntegTests(code, betaUsEast2Stage, betaUsEast2AppStage)
 
     // Prod us-east-2
-    const prodUsEast2Stage = new RoutingAPIStage(this, 'prod-us-east-2', {
-      env: { account: '606857263320', region: 'us-east-2' },
+    const prodUsEast2Stage = new RoutingAPIStage(this, 'prod-ap-southeast-1', {
+      env: { account: '207198455171', region: 'ap-southeast-1' },
       jsonRpcProviders: jsonRpcProviders,
       internalApiKey: internalApiKey.secretValue.toString(),
       provisionedConcurrency: 500,
@@ -284,6 +284,7 @@ const jsonRpcProviders = {
   WEB3_RPC_3441005: process.env.JSON_RPC_PROVIDER_3441005!,
   WEB3_RPC_169: process.env.JSON_RPC_PROVIDER_169!,
   WEB3_RPC_534352: process.env.JSON_RPC_PROVIDER_534352!,
+  WEB3_RPC_168587773: process.env.JSON_RPC_PROVIDER_168587773!,
 }
 
 // Local dev stack
@@ -306,5 +307,5 @@ new RoutingAPIStack(app, 'RoutingAPIStack', {
 })
 
 new RoutingAPIPipeline(app, 'RoutingAPIPipelineStack', {
-  env: { account: '644039819003', region: 'us-east-2' },
+  env: { account: '207198455171', region: 'ap-southeast-1' },
 })
