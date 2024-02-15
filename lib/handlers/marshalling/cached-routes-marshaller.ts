@@ -1,6 +1,6 @@
 import { CachedRoutes, ChainId } from '@monoswap-labs/smart-order-router'
-import { TradeType } from '@uniswap/sdk-core'
-import { Protocol } from '@uniswap/router-sdk'
+import { TradeType } from '@monoswap-labs/sdk-core'
+import { Protocol } from '@monoswap-labs/router-sdk'
 import { MarshalledToken, TokenMarshaller } from './token-marshaller'
 import { CachedRouteMarshaller, MarshalledCachedRoute } from './cached-route-marshaller'
 

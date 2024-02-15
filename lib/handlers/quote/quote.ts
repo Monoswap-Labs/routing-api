@@ -1,8 +1,8 @@
 import Joi from '@hapi/joi'
-import { Protocol } from '@uniswap/router-sdk'
-import { UNIVERSAL_ROUTER_ADDRESS } from '@uniswap/universal-router-sdk'
-import { PermitSingle } from '@uniswap/permit2-sdk'
-import { Currency, CurrencyAmount, TradeType } from '@uniswap/sdk-core'
+import { Protocol } from '@monoswap-labs/router-sdk'
+import { UNIVERSAL_ROUTER_ADDRESS } from '@monoswap-labs/universal-router-sdk'
+import { PermitSingle } from '@monoswap-labs/permit2-sdk'
+import { Currency, CurrencyAmount, TradeType } from '@monoswap-labs/sdk-core'
 import {
   AlphaRouterConfig,
   ChainId,
@@ -16,7 +16,7 @@ import {
   IMetric,
   ID_TO_NETWORK_NAME,
 } from '@monoswap-labs/smart-order-router'
-import { Pool } from '@uniswap/v3-sdk'
+import { Pool } from '@monoswap-labs/v3-sdk'
 import JSBI from 'jsbi'
 import _ from 'lodash'
 import { APIGLambdaHandler, ErrorResponse, HandleRequestParams, Response } from '../handler'

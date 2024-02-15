@@ -1,6 +1,6 @@
 import { SignerWithAddress } from '@nomiclabs/hardhat-ethers/signers'
-import { AllowanceTransfer, PermitSingle } from '@uniswap/permit2-sdk'
-import { Currency, CurrencyAmount, Ether, Fraction, Token, WETH9 } from '@uniswap/sdk-core'
+import { AllowanceTransfer, PermitSingle } from '@monoswap-labs/permit2-sdk'
+import { Currency, CurrencyAmount, Ether, Fraction, Token, WETH9 } from '@monoswap-labs/sdk-core'
 import {
   CEUR_CELO,
   CEUR_CELO_ALFAJORES,
@@ -19,7 +19,7 @@ import {
 import {
   PERMIT2_ADDRESS,
   UNIVERSAL_ROUTER_ADDRESS as UNIVERSAL_ROUTER_ADDRESS_BY_CHAIN,
-} from '@uniswap/universal-router-sdk'
+} from '@monoswap-labs/universal-router-sdk'
 import { MethodParameters } from '@monoswap-labs/smart-order-router'
 import { fail } from 'assert'
 import axiosStatic, { AxiosResponse } from 'axios'

@@ -1,6 +1,7 @@
-import { PairTradeTypeChainId } from '../../../../../../../lib/handlers/router-entities/route-caching'
-import { ChainId, TradeType } from '@uniswap/sdk-core'
-import { describe, it, expect } from '@jest/globals'
+import {PairTradeTypeChainId} from '../../../../../../../lib/handlers/router-entities/route-caching'
+import {describe, it, expect} from '@jest/globals'
+import {ChainId} from '@monoswap-labs/smart-order-router'
+import {TradeType} from "@uniswap/sdk-core";
 
 describe('PairTradeTypeChainId', () => {
   const WETH = '0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2'

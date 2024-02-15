@@ -1,4 +1,4 @@
-import { Protocol } from '@uniswap/router-sdk'
+import { Protocol } from '@monoswap-labs/router-sdk'
 import {
   ChainId,
   IV2SubgraphProvider,

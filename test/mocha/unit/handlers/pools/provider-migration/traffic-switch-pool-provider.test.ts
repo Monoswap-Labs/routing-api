@@ -4,8 +4,9 @@ import { getMockedV3PoolProvider, TEST_ROUTE_TABLE } from '../../../../../test-u
 import { CachingV3PoolProvider, MetricLoggerUnit, NodeJSCache } from '@monoswap-labs/smart-order-router'
 import NodeCache from 'node-cache'
 import sinon from 'sinon'
-import { ChainId, Token } from '@uniswap/sdk-core'
-import { encodeSqrtRatioX96, FeeAmount, Pool } from '@uniswap/v3-sdk'
+import { Token } from '@monoswap-labs/sdk-core'
+import { ChainId } from '@monoswap-labs/smart-order-router'
+import { encodeSqrtRatioX96, FeeAmount, Pool } from '@monoswap-labs/v3-sdk'
 import {
   DAI_USDT_LOW,
   SUPPORTED_POOLS,

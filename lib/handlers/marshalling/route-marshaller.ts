@@ -1,9 +1,9 @@
 import { MixedRoute, V2Route, V3Route } from '@monoswap-labs/smart-order-router/build/main/routers'
-import { Protocol } from '@uniswap/router-sdk'
+import { Protocol } from '@monoswap-labs/router-sdk'
 import { MarshalledToken, TokenMarshaller } from './token-marshaller'
 import { MarshalledPair, PairMarshaller } from './pair-marshaller'
 import { MarshalledPool, PoolMarshaller } from './pool-marshaller'
-import { Pool } from '@uniswap/v3-sdk'
+import { Pool } from '@monoswap-labs/v3-sdk'
 
 export interface MarshalledV2Route {
   protocol: Protocol
@@ -54,6 +54,7 @@ export class RouteMarshaller {
             if (tpool instanceof Pool) {
               return PoolMarshaller.marshal(tpool)
             } else {
+              // @ts-ignore
               return PairMarshaller.marshal(tpool)
             }
           }),
@@ -87,6 +88,7 @@ export class RouteMarshaller {
           }
         })
 
+        // @ts-ignore
         return new MixedRoute(
           tpools,
           TokenMarshaller.unmarshal(mixedRoute.input),

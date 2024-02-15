@@ -1,5 +1,5 @@
 import { V3PoolProvider } from '@monoswap-labs/smart-order-router'
-import { Pool } from '@uniswap/v3-sdk'
+import { Pool } from '@monoswap-labs/v3-sdk'
 import {
   buildMockV3PoolAccessor,
   DAI_USDT_LOW,

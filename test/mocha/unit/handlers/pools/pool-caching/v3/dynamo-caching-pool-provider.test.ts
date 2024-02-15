@@ -2,12 +2,12 @@ import { setupTables } from '../../../../../dbSetup'
 import { DynamoDBCachingV3PoolProvider } from '../../../../../../../lib/handlers/pools/pool-caching/v3/dynamo-caching-pool-provider'
 import { getMockedV3PoolProvider, TEST_ROUTE_TABLE } from '../../../../../../test-utils/mocked-dependencies'
 import { SUPPORTED_POOLS } from '../../../../../../test-utils/mocked-data'
-import { ChainId, Token } from '@uniswap/sdk-core'
-import { FeeAmount, Pool } from '@uniswap/v3-sdk'
+import { Token } from '@monoswap-labs/sdk-core'
+import { FeeAmount, Pool } from '@monoswap-labs/v3-sdk'
 import { ProviderConfig } from '@monoswap-labs/smart-order-router/build/main/providers/provider'
 import { expect } from 'chai'
 import { DynamoCachingV3Pool } from '../../../../../../../lib/handlers/pools/pool-caching/v3/cache-dynamo-pool'
-import { log } from '@monoswap-labs/smart-order-router'
+import { ChainId, log } from '@monoswap-labs/smart-order-router'
 
 describe('DynamoDBCachingV3PoolProvider', async () => {
   setupTables(TEST_ROUTE_TABLE)

@@ -1,5 +1,5 @@
 import DEFAULT_TOKEN_LIST from '@uniswap/default-token-list'
-import { Token } from '@uniswap/sdk-core'
+import { Token } from '@monoswap-labs/sdk-core'
 import {
   CachingTokenListProvider,
   ChainId,

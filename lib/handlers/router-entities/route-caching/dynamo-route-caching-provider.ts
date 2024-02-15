@@ -11,8 +11,8 @@ import {
   routeToString,
 } from '@monoswap-labs/smart-order-router'
 import { AWSError, DynamoDB, Lambda } from 'aws-sdk'
-import { Currency, CurrencyAmount, Fraction, Token, TradeType } from '@uniswap/sdk-core'
-import { Protocol } from '@uniswap/router-sdk'
+import { Currency, CurrencyAmount, Fraction, Token, TradeType } from '@monoswap-labs/sdk-core'
+import { Protocol } from '@monoswap-labs/router-sdk'
 import { PairTradeTypeChainId } from './model/pair-trade-type-chain-id'
 import { CachedRoutesMarshaller } from '../../marshalling/cached-routes-marshaller'
 import { MixedRoute, V2Route, V3Route } from '@monoswap-labs/smart-order-router/build/main/routers'
@@ -55,6 +55,7 @@ export class DynamoRouteCachingProvider extends IRouteCachingProvider {
 
       // https://dune.com/queries/2009572
       case ChainId.BASE:
+      case ChainId.BLAST_SEPOLIA:
       case ChainId.OPTIMISM:
         return 60
 

@@ -1,4 +1,4 @@
-import { TradeType } from '@uniswap/sdk-core'
+import { TradeType } from '@monoswap-labs/sdk-core'
 import { CachedRoutes, ChainId } from '@monoswap-labs/smart-order-router'
 
 interface PairTradeTypeChainIdArgs {

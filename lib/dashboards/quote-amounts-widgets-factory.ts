@@ -1,4 +1,4 @@
-import { TradeType } from '@uniswap/sdk-core'
+import { TradeType } from '@monoswap-labs/sdk-core'
 import { ChainId, ID_TO_NETWORK_NAME } from '@monoswap-labs/smart-order-router'
 import _ from 'lodash'
 import { PAIRS_TO_TRACK } from '../handlers/quote/util/pairs-to-track'

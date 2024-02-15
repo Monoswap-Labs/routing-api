@@ -1,5 +1,5 @@
-import { Protocol } from '@uniswap/router-sdk'
-import { ChainId, V3SubgraphProvider } from '@monoswap-labs/smart-order-router'
+import { Protocol } from '@monoswap-labs/router-sdk'
+import {ChainId, V2SubgraphProvider, V3SubgraphProvider} from '@monoswap-labs/smart-order-router'
 
 export const chainProtocols = [
   // V3.
@@ -70,16 +70,14 @@ export const chainProtocols = [
     chainId: ChainId.BLAST_SEPOLIA,
     timeout: 90000,
     provider: new V3SubgraphProvider(ChainId.BLAST_SEPOLIA, 3, 90000),
-  }
+  },
   // Currently there is no working V3 subgraph for Optimism so we use a static provider.
 
   // V2.
-  /*
   {
     protocol: Protocol.V2,
-    chainId: ChainId.MAINNET,
+    chainId: ChainId.BLAST_SEPOLIA,
     timeout: 840000,
-    provider: new V2SubgraphProvider(ChainId.MAINNET, 3, 900000, true, 1000), // 1000 is the largest page size supported by thegraph
+    provider: new V2SubgraphProvider(ChainId.BLAST_SEPOLIA, 3, 900000, true, 1000), // 1000 is the largest page size supported by thegraph
   },
-  */
 ]

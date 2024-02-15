@@ -1,4 +1,4 @@
-import { Protocol } from '@uniswap/router-sdk'
+import { Protocol } from '@monoswap-labs/router-sdk'
 
 interface ProtocolsBucketBlockNumberArgs {
   protocols: Protocol[]

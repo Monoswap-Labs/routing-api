@@ -1,5 +1,5 @@
 import { CacheMode } from '@monoswap-labs/smart-order-router'
-import { ChainId, CurrencyAmount, Token, TradeType } from '@uniswap/sdk-core'
+import { ChainId, CurrencyAmount, Token, TradeType } from '@monoswap-labs/sdk-core'
 import {
   CachedRoutesBucket,
   CachedRoutesStrategy,
