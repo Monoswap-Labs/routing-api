@@ -35,13 +35,6 @@ export class RoutingDashboardStack extends cdk.NestedStack {
     const region = cdk.Stack.of(this).region
 
     const TESTNETS = [
-      ChainId.ARBITRUM_GOERLI,
-      ChainId.POLYGON_MUMBAI,
-      ChainId.GOERLI,
-      ChainId.SEPOLIA,
-      ChainId.CELO_ALFAJORES,
-      ChainId.BASE_GOERLI,
-      ChainId.MANTA_PACIFIC_TESTNET,
       ChainId.BLAST_SEPOLIA,
     ]
 

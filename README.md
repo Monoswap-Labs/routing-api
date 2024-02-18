@@ -12,6 +12,8 @@ To develop on the Routing API you must have an AWS account where you can deploy 
 
 The best way to develop and test the API is to deploy your own instance to AWS.
 
+Add access key aws in conf cli [Conf key](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-configure.html)
+
 1. Install and configure [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2.html) and [AWS CDK V1](https://docs.aws.amazon.com/cdk/latest/guide/getting_started.html).
 2. Create .env file in the root directory of the project with :
    ```

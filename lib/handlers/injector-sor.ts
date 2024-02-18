@@ -56,21 +56,6 @@ import { OnChainTokenFeeFetcher } from '@monoswap-labs/smart-order-router/build/
 
 export const SUPPORTED_CHAINS: ChainId[] = [
   ChainId.MAINNET,
-  ChainId.OPTIMISM,
-  ChainId.ARBITRUM_ONE,
-  ChainId.ARBITRUM_GOERLI,
-  ChainId.POLYGON,
-  ChainId.POLYGON_MUMBAI,
-  ChainId.GOERLI,
-  ChainId.SEPOLIA,
-  ChainId.CELO,
-  ChainId.CELO_ALFAJORES,
-  ChainId.BNB,
-  ChainId.AVALANCHE,
-  ChainId.BASE,
-  ChainId.MANTA_PACIFIC_TESTNET,
-  ChainId.MANTA_PACIFIC,
-  ChainId.SCROLL,
   ChainId.BLAST_SEPOLIA,
 ]
 const DEFAULT_TOKEN_LIST = 'https://gateway.ipfs.io/ipns/tokens.uniswap.org'
@@ -158,9 +143,9 @@ export abstract class InjectorSOR<Router, QueryParams> extends Injector<
 
           let timeout: number
           switch (chainId) {
-            case ChainId.ARBITRUM_ONE:
-              timeout = 8000
-              break
+            // case ChainId.ARBITRUM_ONE:
+            //   timeout = 8000
+            //   break
             default:
               timeout = 5000
               break
@@ -262,11 +247,7 @@ export abstract class InjectorSOR<Router, QueryParams> extends Injector<
           // 200*725k < 150m
           let quoteProvider: OnChainQuoteProvider | undefined = undefined
           switch (chainId) {
-            case ChainId.MANTA_PACIFIC_TESTNET:
-            case ChainId.MANTA_PACIFIC:
-            case ChainId.SCROLL:
-            case ChainId.BASE:
-            case ChainId.OPTIMISM:
+            case ChainId.BLAST_SEPOLIA:
               quoteProvider = new OnChainQuoteProvider(
                 chainId,
                 provider,
@@ -299,39 +280,39 @@ export abstract class InjectorSOR<Router, QueryParams> extends Injector<
                 }
               )
               break
-            case ChainId.ARBITRUM_ONE:
-              quoteProvider = new OnChainQuoteProvider(
-                chainId,
-                provider,
-                multicall2Provider,
-                {
-                  retries: 2,
-                  minTimeout: 100,
-                  maxTimeout: 1000,
-                },
-                {
-                  multicallChunk: 15,
-                  gasLimitPerCall: 15_000_000,
-                  quoteMinSuccessRate: 0.15,
-                },
-                {
-                  gasLimitOverride: 30_000_000,
-                  multicallChunk: 8,
-                },
-                {
-                  gasLimitOverride: 30_000_000,
-                  multicallChunk: 8,
-                },
-                {
-                  baseBlockOffset: 0,
-                  rollback: {
-                    enabled: true,
-                    attemptsBeforeRollback: 1,
-                    rollbackBlockOffset: -10,
-                  },
-                }
-              )
-              break
+            // case ChainId.ARBITRUM_ONE:
+            //   quoteProvider = new OnChainQuoteProvider(
+            //     chainId,
+            //     provider,
+            //     multicall2Provider,
+            //     {
+            //       retries: 2,
+            //       minTimeout: 100,
+            //       maxTimeout: 1000,
+            //     },
+            //     {
+            //       multicallChunk: 15,
+            //       gasLimitPerCall: 15_000_000,
+            //       quoteMinSuccessRate: 0.15,
+            //     },
+            //     {
+            //       gasLimitOverride: 30_000_000,
+            //       multicallChunk: 8,
+            //     },
+            //     {
+            //       gasLimitOverride: 30_000_000,
+            //       multicallChunk: 8,
+            //     },
+            //     {
+            //       baseBlockOffset: 0,
+            //       rollback: {
+            //         enabled: true,
+            //         attemptsBeforeRollback: 1,
+            //         rollbackBlockOffset: -10,
+            //       },
+            //     }
+            //   )
+            //   break
           }
 
           const tenderlySimulator = new TenderlySimulator(

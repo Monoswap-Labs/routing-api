@@ -38,12 +38,12 @@ describe('TrafficSwitchV3PoolProvider', async () => {
 
     const underlyingPool = getMockedV3PoolProvider()
     const inMemoryPoolCache = new CachingV3PoolProvider(
-      ChainId.GOERLI,
+      ChainId.BLAST_SEPOLIA,
       underlyingPool,
       new NodeJSCache(new NodeCache({ stdTTL: 15, useClones: false }))
     )
     const dynamoPoolCache = new DynamoDBCachingV3PoolProvider(
-      ChainId.GOERLI,
+      ChainId.BLAST_SEPOLIA,
       underlyingPool,
       TEST_ROUTE_TABLE.TableName
     )
@@ -84,12 +84,12 @@ describe('TrafficSwitchV3PoolProvider', async () => {
       DAI_USDT_LOW,
     ])
     const inMemoryPoolCache = new CachingV3PoolProvider(
-      ChainId.GOERLI,
+      ChainId.BLAST_SEPOLIA,
       underlyingPool,
       new NodeJSCache(new NodeCache({ stdTTL: 15, useClones: false }))
     )
     const dynamoPoolCache = new DynamoDBCachingV3PoolProvider(
-      ChainId.GOERLI,
+      ChainId.BLAST_SEPOLIA,
       underlyingPool,
       TEST_ROUTE_TABLE.TableName
     )
@@ -130,12 +130,12 @@ describe('TrafficSwitchV3PoolProvider', async () => {
       DAI_USDT_LOW,
     ])
     const inMemoryPoolCache = new CachingV3PoolProvider(
-      ChainId.GOERLI,
+      ChainId.BLAST_SEPOLIA,
       underlyingPool,
       new NodeJSCache(new NodeCache({ stdTTL: 15, useClones: false }))
     )
     const dynamoPoolCache = new DynamoDBCachingV3PoolProvider(
-      ChainId.GOERLI,
+      ChainId.BLAST_SEPOLIA,
       underlyingPool,
       TEST_ROUTE_TABLE.TableName
     )

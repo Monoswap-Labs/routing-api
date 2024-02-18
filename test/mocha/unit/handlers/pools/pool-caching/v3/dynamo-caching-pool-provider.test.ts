@@ -14,7 +14,7 @@ describe('DynamoDBCachingV3PoolProvider', async () => {
 
   it('caches pools properly with a given block number', async () => {
     const dynamoPoolCache = new DynamoDBCachingV3PoolProvider(
-      ChainId.GOERLI,
+      ChainId.BLAST_SEPOLIA,
       getMockedV3PoolProvider(),
       TEST_ROUTE_TABLE.TableName
     )
@@ -26,7 +26,7 @@ describe('DynamoDBCachingV3PoolProvider', async () => {
     // First ensure the dynamo cache doesn't have the pools yet
     for (const pool of SUPPORTED_POOLS) {
       const poolAddress = getMockedV3PoolProvider().getPoolAddress(pool.token0, pool.token1, pool.fee).poolAddress
-      const hasCachedPool = await dynamoCache.get(`pool-${ChainId.GOERLI}-${poolAddress}`, blockNumber)
+      const hasCachedPool = await dynamoCache.get(`pool-${ChainId.BLAST_SEPOLIA}-${poolAddress}`, blockNumber)
       expect(hasCachedPool).to.not.exist
     }
 
@@ -38,7 +38,7 @@ describe('DynamoDBCachingV3PoolProvider', async () => {
     // Then ensure the dynamo cache has the pools yet
     for (const pool of SUPPORTED_POOLS) {
       const poolAddress = getMockedV3PoolProvider().getPoolAddress(pool.token0, pool.token1, pool.fee).poolAddress
-      const hasCachedPool = await dynamoCache.get(`pool-${ChainId.GOERLI}-${poolAddress}`, blockNumber)
+      const hasCachedPool = await dynamoCache.get(`pool-${ChainId.BLAST_SEPOLIA}-${poolAddress}`, blockNumber)
       expect(hasCachedPool).to.exist
 
       expect(hasCachedPool?.token0.chainId).equals(pool.token0.chainId)
@@ -61,7 +61,7 @@ describe('DynamoDBCachingV3PoolProvider', async () => {
 
   it('caches do not cache when no block number', async () => {
     const dynamoPoolCache = new DynamoDBCachingV3PoolProvider(
-      ChainId.GOERLI,
+      ChainId.BLAST_SEPOLIA,
       getMockedV3PoolProvider(),
       TEST_ROUTE_TABLE.TableName
     )
@@ -73,8 +73,8 @@ describe('DynamoDBCachingV3PoolProvider', async () => {
     // First ensure the dynamo cache doesn't have the pools yet
     for (const pool of SUPPORTED_POOLS) {
       const poolAddress = getMockedV3PoolProvider().getPoolAddress(pool.token0, pool.token1, pool.fee).poolAddress
-      log.info(`check if pool pool-${ChainId.GOERLI}-${poolAddress} block ${blockNumber} contains the cache`)
-      const hasCachedPool = await dynamoCache.get(`pool-${ChainId.GOERLI}-${poolAddress}`, blockNumber)
+      log.info(`check if pool pool-${ChainId.BLAST_SEPOLIA}-${poolAddress} block ${blockNumber} contains the cache`)
+      const hasCachedPool = await dynamoCache.get(`pool-${ChainId.BLAST_SEPOLIA}-${poolAddress}`, blockNumber)
       expect(hasCachedPool).to.not.exist
     }
 
@@ -86,8 +86,8 @@ describe('DynamoDBCachingV3PoolProvider', async () => {
     // Then ensure the dynamo cache won't have the pools
     for (const pool of SUPPORTED_POOLS) {
       const poolAddress = getMockedV3PoolProvider().getPoolAddress(pool.token0, pool.token1, pool.fee).poolAddress
-      log.info(`check if pool pool-${ChainId.GOERLI}-${poolAddress} block ${blockNumber} contains the cache`)
-      const hasCachedPool = await dynamoCache.get(`pool-${ChainId.GOERLI}-${poolAddress}`, blockNumber)
+      log.info(`check if pool pool-${ChainId.BLAST_SEPOLIA}-${poolAddress} block ${blockNumber} contains the cache`)
+      const hasCachedPool = await dynamoCache.get(`pool-${ChainId.BLAST_SEPOLIA}-${poolAddress}`, blockNumber)
       expect(hasCachedPool).to.not.equals
     }
   })

@@ -6,7 +6,6 @@ import {
   CEUR_CELO_ALFAJORES,
   CUSD_CELO,
   CUSD_CELO_ALFAJORES,
-  ChainId,
   DAI_MAINNET,
   ID_TO_NETWORK_NAME,
   NATIVE_CURRENCY,
@@ -20,7 +19,7 @@ import {
   PERMIT2_ADDRESS,
   UNIVERSAL_ROUTER_ADDRESS as UNIVERSAL_ROUTER_ADDRESS_BY_CHAIN,
 } from '@monoswap-labs/universal-router-sdk'
-import { MethodParameters } from '@monoswap-labs/smart-order-router'
+import { MethodParameters, ChainId } from '@monoswap-labs/smart-order-router'
 import { fail } from 'assert'
 import axiosStatic, { AxiosResponse } from 'axios'
 import axiosRetry from 'axios-retry'

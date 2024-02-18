@@ -3,13 +3,14 @@ import {ChainId, V2SubgraphProvider, V3SubgraphProvider} from '@monoswap-labs/sm
 
 export const chainProtocols = [
   // V3.
-  /*
+
   {
     protocol: Protocol.V3,
     chainId: ChainId.MAINNET,
     timeout: 90000,
     provider: new V3SubgraphProvider(ChainId.MAINNET, 3, 90000),
   },
+  /*
   {
     protocol: Protocol.V3,
     chainId: ChainId.ARBITRUM_ONE,
@@ -79,5 +80,11 @@ export const chainProtocols = [
     chainId: ChainId.BLAST_SEPOLIA,
     timeout: 840000,
     provider: new V2SubgraphProvider(ChainId.BLAST_SEPOLIA, 3, 900000, true, 1000), // 1000 is the largest page size supported by thegraph
+  },
+  {
+    protocol: Protocol.V2,
+    chainId: ChainId.MAINNET,
+    timeout: 840000,
+    provider: new V2SubgraphProvider(ChainId.MAINNET, 3, 900000, true, 1000), // 1000 is the largest page size supported by thegraph
   },
 ]
