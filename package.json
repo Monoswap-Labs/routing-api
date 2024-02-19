@@ -1,11 +1,11 @@
 {
-  "name": "@uniswap/routing-api",
-  "version": "0.2.0",
+  "name": "@monoswap/routing-api",
+  "version": "0.1.0",
   "bin": {
     "app": "./dist/bin/app.js"
   },
   "license": "GPL",
-  "repository": "https://github.com/Uniswap/routing-api",
+  "repository": "https://github.com/monoswap-labs/routing-api",
   "scripts": {
     "compile-external-types": "npx typechain --target ethers-v5 --out-dir lib/types/ext 'lib/abis/**/*.json'",
     "compile-v3-contract-types": "npx typechain --target ethers-v5 --out-dir lib/types/v3 \"./node_modules/@uniswap/?(v3-core|v3-periphery)/artifacts/contracts/**/*.json\"",
